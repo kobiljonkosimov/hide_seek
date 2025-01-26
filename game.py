@@ -187,7 +187,7 @@ def main():
         player_pos, seeker_pos = initialize_positions(grid)
 
         # Training parameters
-        num_episodes = 500000  # Number of training episodes
+        num_episodes = 50000  # Number of training episodes
         for episode in range(num_episodes):
             player_pos, seeker_pos = initialize_positions(grid)  # Reset positions for each episode
             total_reward = 0  # Track total reward for the episode
