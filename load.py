@@ -1,9 +1,7 @@
 import cv2
 import numpy as np
 import random
-import time
 from src.game import *
-from src.utils import calc
 from src.ai import QLearningHider
 
 def main():
@@ -24,8 +22,7 @@ def main():
                 break
 
             state = player_pos
-            best_move = calc(state, seeker_pos, grid)
-            action = best_move if best_move is not None else hider_agent.get_action(state)
+            action = hider_agent.get_action(state)
 
             if action == 0:
                 new_pos = (player_pos[0], player_pos[1] - 1)
@@ -40,8 +37,6 @@ def main():
                 player_pos = new_pos
 
             seeker_pos = seeker_move(player_pos, seeker_pos, grid)
-
-            time.sleep(0.15)
 
             if cv2.waitKey(100) & 0xFF == ord('q'):
                 cv2.destroyAllWindows()
